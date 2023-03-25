@@ -3,7 +3,6 @@ package org.example.pl.SDA.pol141.JA.Day1.value_object;
 public class Power {
     public static final String POWER_UNIT_W = "W";
     public static final String POWER_UNIT_KW = "kW";
-    public static final int INT = 1000;
     public final double value;
     public final String unit;
 
@@ -13,7 +12,7 @@ public class Power {
     }
 
     public static Power ofKW(double value) {
-        return new Power(value * INT, POWER_UNIT_KW);
+        return new Power(value * 1000, POWER_UNIT_KW);
 //        return new Power(value * 1000);
     }
 
@@ -31,10 +30,10 @@ public class Power {
             return new Power(add.value + value, unit);
         }
         if (unit.equals(POWER_UNIT_W) && add.unit.equals(POWER_UNIT_KW)) {
-            return new Power(value + add.value * INT, unit);
+            return new Power(value + add.value * 1000, unit);
         }
         if (unit.equals(POWER_UNIT_KW) && add.unit.equals(POWER_UNIT_W)) {
-            return new Power(value + add.value/INT, unit);
+            return new Power(value + add.value/1000, unit);
         }
         return null;
     }
