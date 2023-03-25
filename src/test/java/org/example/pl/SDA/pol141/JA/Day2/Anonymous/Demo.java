@@ -16,8 +16,8 @@ public class Demo {
                 return "Adios";
             }
         };
-//        System.out.println(spanishTranslator.sayHello());
-//        System.out.println(spanishTranslator.sayGoodbye());
+        System.out.println(spanishTranslator.sayHello());
+        System.out.println(spanishTranslator.sayGoodbye());
 
         Console console = new Console() {
             @Override
