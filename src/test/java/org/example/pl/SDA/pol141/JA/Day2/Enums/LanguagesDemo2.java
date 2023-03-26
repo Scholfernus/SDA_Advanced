@@ -23,7 +23,7 @@ public class LanguagesDemo2 {
             return;
         }
         console.print(language.ordinal() + "");
-        Translator translator = language.getTranslator();;
+        Translator translator = language.getTranslator();
         console.print(translator.sayHello());
         console.print(translator.sayGoodbye());
 
