@@ -14,11 +14,12 @@ public class AddressBookItem {
         this.phone = phone;
         this.birth = birth;
     }
-    public static AddressBookItem of(String email, String phone, LocalDate date){
-        if (email == null || phone == null || date == null){
+
+    public static AddressBookItem of(String email, String phone, LocalDate date) {
+        if (email == null || phone == null || date == null) {
             throw new IllegalArgumentException("Któraś z wartości jest pusta");
         }
-        return new AddressBookItem(email,phone,date);
+        return new AddressBookItem(email, phone, date);
     }
 
     public String getEmail() {

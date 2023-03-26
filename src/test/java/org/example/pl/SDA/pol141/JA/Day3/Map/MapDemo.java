@@ -13,27 +13,28 @@ public class MapDemo {
         Map<String, AddressBookItem> phoneBook = new HashMap<>();
         AddressBookItem item = AddressBookItem.of("1@.com.pl", "1111", LocalDate.now());
         phoneBook.put(item.getPhone(), item);
-        AddressBookItem item2 = AddressBookItem.of("2@.com.pl", "24548646", LocalDate.now());
+        AddressBookItem item2 = AddressBookItem.of("2@.com.pl", "2222", LocalDate.now());
         phoneBook.put(item.getPhone(), item);
-        AddressBookItem item3 = AddressBookItem.of("3@.com.pl", "3124548646", LocalDate.now());
+        AddressBookItem item3 = AddressBookItem.of("3@.com.pl", "3333", LocalDate.now());
         phoneBook.put(item.getPhone(), item);
+        phoneBook.putIfAbsent("2222",AddressBookItem.of("1", "1", LocalDate.now()));
 
-        AddressBookItem bookItem = phoneBook.get("1111");
+        AddressBookItem bookItem = phoneBook.get("2222");
         if (bookItem == null) {
             System.out.println("Brak takiego wpisu");
         } else {
             System.out.println("wyszukana osoba o numerze: " + bookItem.getPhone());
+            System.out.println(bookItem);
         }
-        System.out.println(bookItem);
         Set<String> phoneNumbers = phoneBook.keySet();
         System.out.println(phoneNumbers);
-        Collection<AddressBookItem> values = phoneBook.values();
-        System.out.println(values);
-        System.out.println(phoneBook.containsKey(phoneNumbers));
+        Collection<AddressBookItem> items = phoneBook.values();
+        System.out.println(items);
         for (var entry : phoneBook.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
-
+        var s = phoneBook.getOrDefault("1111", AddressBookItem.of("empty", "empty", LocalDate.EPOCH));
+        System.out.println(s);
 
     }
 }

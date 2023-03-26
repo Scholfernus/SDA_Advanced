@@ -2,6 +2,7 @@ package org.example.pl.SDA.pol141.JA.Day3.Lists;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class EqualsTask {
@@ -13,9 +14,18 @@ public class EqualsTask {
             this.x = x;
             this.y = y;
         }
-
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Point point)) return false;
+            return x == point.x && y == point.y;
+        }
+        @Override
+        public int hashCode() {
+            return Objects.hash(x, y);
+        }
     }
-// D o  P O P R A W Y ! ! ! ! ! ! !
+
     public static void main(String[] args) {
 
         List<Point> points = new ArrayList<>();
@@ -23,8 +33,13 @@ public class EqualsTask {
         for (int i = 0; i < 100; i++) {
             points.add(new Point(random.nextInt(5), random.nextInt(5)));
         }
-        System.out.println(points);
-        points.equals(points.contains(new Point(2, 3)));
+        System.out.println(points.contains(new Point(2, 3)));
+        int counter = 0;
+        var p = new Point(2, 3);
+        for (var point : points){
+            counter += point.equals(p) ? 1 : 0;
+        }
+        System.out.println(counter);
     }
 
 }
