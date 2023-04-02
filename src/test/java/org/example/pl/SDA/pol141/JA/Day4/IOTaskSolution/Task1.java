@@ -15,10 +15,7 @@ import java.util.Map;
 public class Task1 {
     public static void main(String[] args) throws IOException {
         Path pathCSV = Paths.get("c:\\Data\\FileCSV.txt");
-        BufferedWriter namesData = new BufferedWriter(
-                new OutputStreamWriter(
-                        new FileOutputStream("c:\\Data\\NewFileCSV.txt"))
-        );
+
         BufferedWriter emailData = new BufferedWriter(
                 new OutputStreamWriter(
                         new FileOutputStream("c:\\Data\\emails.txt"))); // Strumień do zapisywania adresów email do pliku
@@ -33,7 +30,7 @@ public class Task1 {
 
             names.put(firstName, names.getOrDefault(firstName, 0) + 1);
             cities.put(city, cities.getOrDefault(city, 0) + 1);
-            System.out.print(columns[0]);
+            System.out.println(columns[0]);
             System.out.println(columns[4]);
             System.out.println(columns[10]);
             emailData.write(email); // Zapisz adres email do pliku
@@ -63,7 +60,7 @@ public class Task1 {
             }
         }
         System.out.println();
-        System.out.println("Najczęściej występujące imię: " + mostCommonName.toUpperCase(Locale.ROOT)
+        System.out.println("Najczęściej występujące imię: " + mostCommonName.toUpperCase()
                 + " " + mostCommonNameCount + " razy.");
     }
 }
