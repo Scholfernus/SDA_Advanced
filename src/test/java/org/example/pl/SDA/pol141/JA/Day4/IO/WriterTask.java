@@ -11,6 +11,7 @@ public class WriterTask {
                         new FileOutputStream("c:\\data\\names.txt")
                 )
         );
+        
         for (var n :names
              ) {
             namesWriter.write(n + " ");
