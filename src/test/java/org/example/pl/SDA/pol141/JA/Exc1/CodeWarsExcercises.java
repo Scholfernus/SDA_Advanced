@@ -15,22 +15,23 @@ public class CodeWarsExcercises {
         String numbers = String.valueOf(n = random.nextInt(100000));
         char[] chars = numbers.toCharArray();
         int[] liczby = new int[chars.length];
-        for (int i = chars.length; i >= 0; i--) {
-            for (int j = 0; j < chars.length - 1; j++) {
-                liczby[j] = chars[i];
+        int tabLen = 0;
+
+        for (int i = chars.length - 1; i >= 0; i--) {
+            {
+                int temp = Character.getNumericValue(chars[i]);
+                liczby[tabLen] = temp;
+                tabLen++;
             }
-
+            System.out.println(Arrays.toString(chars));
         }
-
-        System.out.println(Arrays.toString(chars));
-        return null;
+    return null;
     }
-
-    public static void main(String[] args) {
-        digitize(25500);
-        digitize(10);
+        public static void main (String[]args){
+            digitize(25500);
+            digitize(10);
+        }
     }
-}
 
 
 
