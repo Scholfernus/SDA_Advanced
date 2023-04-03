@@ -12,7 +12,7 @@ public class SortowanieBabelkowe {
             numbers[i] = random.nextInt(41);
         }
         System.out.println(Arrays.toString(numbers));
-        for (int i = 0; i < numbers.length-1; i++) {
+        for (int i = 0; i < numbers.length - 1; i++) {
             for (int j = 0; j < numbers.length - 1; j++) {
                 if (numbers[j] > numbers[j + 1]) {
                     int temp = numbers[j + 1];
@@ -21,6 +21,20 @@ public class SortowanieBabelkowe {
                 }
             }
         }
-        System.out.println(Arrays.toString(numbers));
+        Random random = new Random();
+        int n = random.nextInt(100000);
+        String numb = String.valueOf((n));
+        char[] chars = numb.toCharArray();
+        int[] liczby = new int[chars.length];
+        int tabLen = 0;
+        for (int i = chars.length - 1; i >= 0; i--) {
+            {
+                int temp = Character.getNumericValue(chars[i]);
+                 liczby[tabLen] = temp;
+                tabLen++;
+            }
+        }
+        System.out.println(Arrays.toString(chars));
+        System.out.println(Arrays.toString(liczby));
     }
 }
