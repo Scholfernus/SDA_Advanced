@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class CodeWarsExcercises {
-    public String dnaToRna(String dna) {
+    public static String dnaToRna(String dna) {
         return dna.replaceAll("U", "T");
         // Do your magic!
     }
@@ -23,15 +23,17 @@ public class CodeWarsExcercises {
                 liczby[tabLen] = temp;
                 tabLen++;
             }
-            System.out.println(Arrays.toString(chars));
         }
-    return null;
+        System.out.println(Arrays.toString(chars));
+        return null;
     }
-        public static void main (String[]args){
-            digitize(25500);
-            digitize(10);
-        }
+
+    public static void main(String[] args) {
+        digitize(25500);
+        digitize(10);
+        System.out.println("Wydruk nazwy na:  ->  " + dnaToRna("UUUUUPNAT"));
     }
+}
 
 
 
