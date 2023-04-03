@@ -25,16 +25,38 @@ public class CodeWarsExcercises {
             }
         }
         System.out.println(Arrays.toString(chars));
-        return null;
+        return liczby;
     }
+
+    class Kata {
+        public static String greet(String name, String owner) {
+            // Add code here
+            if(name.equals(owner)) {
+                return "Hello boss";
+            }else{
+                return "Hello guest";
+            }
+        }
+    }
+
+
 
     public static void main(String[] args) {
         digitize(25500);
         digitize(10);
         System.out.println("Wydruk nazwy na:  ->  " + dnaToRna("UUUUUPNAT"));
+
     }
 }
-
+//public class Kata {
+//  public static int[] digitize(long n) {
+//        return new StringBuilder().append(n)
+//                                  .reverse()
+//                                  .chars()
+//                                  .map(Character::getNumericValue)
+//                                  .toArray();
+//  }
+//}
 
 
 
