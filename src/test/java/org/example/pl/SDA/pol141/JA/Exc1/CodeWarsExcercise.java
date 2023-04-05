@@ -111,20 +111,51 @@ public class CodeWarsExcercise {
     //Transportation on vacation
     public static int rentalCarCost(int d) {
         // Your solution here
-        int amount = 40;
-        int cost = 0;
-        if (d < 3) {
-            cost = amount * d;
-        } else if (d >=3 && d<= 6) {
-            cost = (amount * d) - 20;
+        int cost = d * 40;
+        if (d >= 3 && d <= 6) {
+            cost -= 20;
         } else if (d >= 7) {
-            cost = (amount * d) - 50;
+            cost -= 50;
         }
         return cost;
     }
     // return d < 7 ? d < 3 ? 40 * d : 40 * d - 20 : 40 * d - 50;
     // return d < 3 ? d * 40 : d < 7 ? d * 40 - 20 : d * 40 - 50;
 
+    // Calculate average
+    public static double find_average(int[] array) {
+        double avg = 0;
+        if (array.length == 0) {
+            return 0;
+        } else return avg = Arrays.stream(array).sum() / array.length;
+    }
+    // return Arrays.stream(array).average().orElse(0);
+
+    // Volume of a Cuboid
+
+    public static double getVolumeOfCuboid(final double length, final double width, final double height) {
+        // Your code here
+        double cuboid = length * width * height;
+        return cuboid;
+    }
+
+    //Third Angle of a Triangle
+    public static int otherAngle(int angle1, int angle2) {
+        // TODO: Place code here
+        return 180 - angle1 - angle2;
+    }
+
+    // Remove First and Last Character
+
+    public static String remove(String str) {
+        // your code here
+        return str.substring(1,str.length()-1);
+    }
+
+    // Keep Hydrated!
+    public int Liters(double time)  {
+        return (int) (time/2);
+    }
     public static void main(String[] args) {
         int[] input = new int[]{-1, -2, -3, -4, -5};
         invert(input);
@@ -139,6 +170,10 @@ public class CodeWarsExcercise {
         System.out.println(fakeBin("25469521325412358931L"));
         System.out.println(Arrays.toString(map(new int[5])));
         System.out.println(betterThanAverage(new int[]{100, 40, 34, 57, 29, 72, 57, 88}, 75));
-        System.out.println(rentalCarCost(7));
+        System.out.println(rentalCarCost(2));
+        System.out.println(find_average(input));
+        System.out.println(otherAngle(26,54));
+        System.out.println(remove("eloquent"));
+
     }
 }
