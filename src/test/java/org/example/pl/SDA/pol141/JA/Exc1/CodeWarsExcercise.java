@@ -23,23 +23,32 @@ public class CodeWarsExcercise {
 
     public static int points(String[] games) {
         //implement me
-        int points = 0;
+        int totalPoints = 0;
         for (String g : games) {
             String[] strings = g.split(":");
             int x = Integer.parseInt(strings[0]);
             int y = Integer.parseInt(strings[1]);
             if (x > y) {
-                points += 3;
+                totalPoints += 3;
             } else if (x == y) {
-                points++;
+                totalPoints++;
             }
-
             System.out.print(Arrays.toString(strings));
         }
-        return points;
+        return totalPoints;
     }
 
-
+    public static String even_or_odd(int number) {
+        //Place code here
+        if (number % 2 == 0) {
+            return "even";
+        } else {
+            return "odd";
+        }
+        // return (number %2 == 0) ? "Even" : "Odd";
+        // return (number & 1) == 0 ? "Even" : "Odd";   genialne
+        // return(number %2!=0)?"Odd":"even";
+    }
 
 
     public static void main(String[] args) {
@@ -50,6 +59,7 @@ public class CodeWarsExcercise {
         System.out.println(points(total));
         System.out.println(total);
         System.out.println("\n" + Arrays.toString(total));
+        System.out.println(even_or_odd(5));
 
     }
 }
