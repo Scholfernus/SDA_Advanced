@@ -195,20 +195,65 @@ public class CodeWarsExcercise {
         String afterReverse = "";
         char temporary;
         char[] chars = original.toCharArray();
-        for (int i = chars.length-1; i >=0; i--) {
+        for (int i = chars.length - 1; i >= 0; i--) {
             temporary = chars[i];
-            afterReverse +=temporary;
-                    }
+            afterReverse += temporary;
+        }
         return afterReverse;
     }
+
     // Regex validate PIN code
     public static boolean validatePin(String pin) {
         // Your code here...
-        if (pin.length()==4 && pin.matches("\\d{4}") || pin.length()==6&&pin.matches("\\d{6}")){
+        if (pin.length() == 4 && pin.matches("\\d{4}") || pin.length() == 6 && pin.matches("\\d{6}")) {
             return true;
-        }else
+        } else
             return false;
     }
+    //  return pin.matches("\\d{4}|\\d{6}");
+
+    // Convert a string to an array
+
+    public static String[] stringToArray(String s) {
+        //your code;
+        String[] signs = s.split(" ");
+        return signs;
+    }
+
+    // String ends with?
+    public static boolean solution(String str, String ending) {
+        if (str.endsWith(ending)) {
+            return true;
+        } else return false;
+    }
+
+    public static String greet() {
+        return "hello world!";
+    }
+
+    // Basic Mathematical Operations
+    public static Integer basicMath(String op, int v1, int v2) {
+        int result = Integer.parseInt(v1 + op + v2);
+        return result;
+    }
+
+    // You only need one - Beginner
+    public static boolean check(Object[] a, Object x) {
+        // Your code here
+        for (var item : a) {
+            if (item.equals(x) && item==x) {
+
+                return true;
+            } else {
+
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
     public static void main(String[] args) {
         int[] input = new int[]{-1, -2, -3, -4, -5};
         invert(input);
@@ -232,6 +277,7 @@ public class CodeWarsExcercise {
         System.out.println(reverseWords("The quick brown fox jumps over the lazy dog."));
         System.out.println(validatePin("a234"));
         System.out.println(validatePin(".234"));
-
+        System.out.println(stringToArray("I love arrays they are my favorite"));
+        System.out.println();
     }
 }
