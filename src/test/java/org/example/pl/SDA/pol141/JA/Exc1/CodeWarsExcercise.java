@@ -149,12 +149,65 @@ public class CodeWarsExcercise {
 
     public static String remove(String str) {
         // your code here
-        return str.substring(1,str.length()-1);
+        return str.substring(1, str.length() - 1);
     }
 
     // Keep Hydrated!
-    public int Liters(double time)  {
-        return (int) (time/2);
+    public int Liters(double time) {
+        return (int) (time / 2);
+    }
+
+    // If you can't sleep, just count sheep!!
+
+    public static String countingSheep(int num) {
+        //Add your code here
+        String s = "";
+        String sleep = "sheep...";
+        for (int i = 1; i <= num; i++) {
+            s += i + sleep;
+        }
+        return s;
+    }
+    // Quarter of the year
+
+    public static int quarterOf(int month) {
+        // Your code here
+        if (month <= 3 && month > 1) {
+            return 1;
+        } else if (month > 3 && month <= 6) {
+            return 2;
+        } else if (month > 6 && month <= 9) {
+            return 3;
+        } else if (month > 9 && month <= 12) {
+            return 4;
+        } else
+
+            return month;
+    }
+
+    // static final int Q[] = {0,1,1,1,2,2,2,3,3,3,4,4,4};
+    //
+    //  public static int quarterOf(int m) {
+    //    return Q[m];
+    //  }
+    // Reverse words
+    public static String reverseWords(final String original) {
+        String afterReverse = "";
+        char temporary;
+        char[] chars = original.toCharArray();
+        for (int i = chars.length-1; i >=0; i--) {
+            temporary = chars[i];
+            afterReverse +=temporary;
+                    }
+        return afterReverse;
+    }
+    // Regex validate PIN code
+    public static boolean validatePin(String pin) {
+        // Your code here...
+        if (pin.length()==4 && pin.matches("\\d{4}") || pin.length()==6&&pin.matches("\\d{6}")){
+            return true;
+        }else
+            return false;
     }
     public static void main(String[] args) {
         int[] input = new int[]{-1, -2, -3, -4, -5};
@@ -172,8 +225,13 @@ public class CodeWarsExcercise {
         System.out.println(betterThanAverage(new int[]{100, 40, 34, 57, 29, 72, 57, 88}, 75));
         System.out.println(rentalCarCost(2));
         System.out.println(find_average(input));
-        System.out.println(otherAngle(26,54));
+        System.out.println(otherAngle(26, 54));
         System.out.println(remove("eloquent"));
+        System.out.println(countingSheep(5));
+        System.out.println(quarterOf(6));
+        System.out.println(reverseWords("The quick brown fox jumps over the lazy dog."));
+        System.out.println(validatePin("a234"));
+        System.out.println(validatePin(".234"));
 
     }
 }
