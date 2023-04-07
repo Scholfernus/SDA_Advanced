@@ -1,5 +1,6 @@
 package org.example.pl.SDA.pol141.JA.Exc1;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CodeWarsExcercise {
@@ -241,7 +242,7 @@ public class CodeWarsExcercise {
     public static boolean check(Object[] a, Object x) {
         // Your code here
         for (var item : a) {
-            if (item.equals(x) && item==x) {
+            if (item.equals(x) && item == x) {
 
                 return true;
             } else {
@@ -252,9 +253,33 @@ public class CodeWarsExcercise {
         return true;
     }
 
+    // You're a square!
+    public static boolean isSquare(int n) {
+        return Math.sqrt(n) % 2 == 0;
+    }
+
+    // Number of People in the Bus
+    public static int countPassengers(ArrayList<int[]> stops) {
+        int people = 0;
+        for (int[] i : stops) {
+            people += i[0] - i[1];
+        }
+        return people;
+    }
+
+    // Sum of positive
+    public static int sum(int[] arr) {
+        int sum = 0;
+        for (int i : arr) {
+            if (i>0){
+                sum+=i;
+            }
+        }
+        return sum;
+    }
 
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         int[] input = new int[]{-1, -2, -3, -4, -5};
         invert(input);
         System.out.println(Arrays.toString(input));
