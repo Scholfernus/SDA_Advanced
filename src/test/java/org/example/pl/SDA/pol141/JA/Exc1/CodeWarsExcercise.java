@@ -303,6 +303,6 @@ public class CodeWarsExcercise {
         System.out.println(validatePin("a234"));
         System.out.println(validatePin(".234"));
         System.out.println(stringToArray("I love arrays they are my favorite"));
-        System.out.println();
+        System.out.println(sum(new int[]{1,2,3,4,5}));
     }
 }
