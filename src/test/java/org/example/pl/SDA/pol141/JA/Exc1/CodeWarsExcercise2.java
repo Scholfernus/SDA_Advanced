@@ -39,12 +39,13 @@ public class CodeWarsExcercise2 {
     //Grasshopper - Summation
     public static int summation(int n) {
         int sum = 0;
-        while (n>=0){
-            sum+=n;
+        while (n >= 0) {
+            sum += n;
             n--;
         }
         return sum;
     }
+
     // return  n*(n+1)/2;
     //Rock Paper Scissors!
     public static String rps(String p1, String p2) {
@@ -59,13 +60,36 @@ public class CodeWarsExcercise2 {
             return "Player 1 won!";
         } else if (p1.equals("paper") && p2.equals("rock")) {
             return "Player 1 won!";
-        }else return "end";
+        } else return "end";
     }
+
+    // Opposites Attract
+    public static boolean isLove(final int flower1, final int flower2) {
+        int love = flower1 + flower2;
+        if (love % 2 == 0) {
+            return false;
+        } else return true;
+    }
+
+    // return (flower1 + flower2) % 2 == 1;
+    public static String hoopCount(int n) {
+        if (n >= 10) {
+            return "Great, now move on to tricks";
+        } else if (n < 10) {
+            return "Keep at it until you get it";
+        }
+        return "";
+    }
+    //  return n >= 10 ? "Great, now move on to tricks" : "Keep at it until you get it";
+
+
 
     public static void main(String[] args) {
         System.out.println(numberToString(365));
         System.out.println(getCount("o a kak ushakov lil vo kashu kakao"));
         System.out.println(makeNegative(44));
         System.out.println(summation(8));
+        System.out.println(isLove(5, 4));
+        System.out.println(hoopCount(9));
     }
 }
