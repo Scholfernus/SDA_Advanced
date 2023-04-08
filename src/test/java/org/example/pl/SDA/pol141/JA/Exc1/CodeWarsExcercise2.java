@@ -80,8 +80,61 @@ public class CodeWarsExcercise2 {
         }
         return "";
     }
-    //  return n >= 10 ? "Great, now move on to tricks" : "Keep at it until you get it";
 
+    //  return n >= 10 ? "Great, now move on to tricks" : "Keep at it until you get it";
+    // Odd or Even?
+    public static String oddOrEven(int[] array) {
+        int sum = 0;
+        for (int i : array) {
+            sum += i;
+            if (sum % 2 == 0) {
+                return "odd";
+            } else if (sum % 2 != 0) {
+                return "even";
+            } else return null;
+        }
+        return "end";
+    }
+
+    //  Twice as old
+    public static int TwiceAsOld(int dadYears, int sonYears) {
+        //TODO: Add code here
+        if (dadYears >= 2 * sonYears) {
+            int howManyYears = dadYears - 2 * sonYears;
+            return howManyYears;
+        } else {
+            int howManyYears = 2 * sonYears - dadYears;
+            return howManyYears;
+        }
+    }
+
+    // Parse nice int from char problem
+    public static int howOld(final String herOld) {
+        //your code here, return correct age as int ; )
+        int age = Character.getNumericValue(herOld.charAt(0));
+        return age;
+    }
+    // String s = herOld.substring(0,1);
+    //  return Integer.parseInt(s);
+
+    // L1: Set Alarm
+    public static boolean setAlarm(boolean employed, boolean vacation) {
+
+        if (employed == vacation) {
+            return false;
+        }
+        if (employed == false && vacation == true) {
+            return false;
+        }
+        if (employed == true && vacation == false) {
+            return true;
+        }
+        return true;
+    }
+    //  return employed && !vacation;
+    //  if(employed && !vacation)
+    //      return true;
+    //    return false;
 
 
     public static void main(String[] args) {
@@ -91,5 +144,9 @@ public class CodeWarsExcercise2 {
         System.out.println(summation(8));
         System.out.println(isLove(5, 4));
         System.out.println(hoopCount(9));
+        System.out.println(oddOrEven(new int[]{2, 5, 34, 6}));
+        System.out.println(TwiceAsOld(30, 12));
+        System.out.println(howOld("9 years old"));
+        System.out.println(setAlarm(true, true));
     }
 }
