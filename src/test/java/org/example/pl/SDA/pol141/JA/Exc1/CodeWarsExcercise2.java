@@ -1,6 +1,7 @@
 package org.example.pl.SDA.pol141.JA.Exc1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CodeWarsExcercise2 {
@@ -136,7 +137,92 @@ public class CodeWarsExcercise2 {
     //      return true;
     //    return false;
 
+    // Sum Mixed Array
+    public int sum(List<?> mixed) {
+        int sum = 0;
+        for (Object s : mixed) {
+            sum += Integer.parseInt(String.valueOf(s));
+        }
+        return sum;
+    }
 
+    // int sum = 0;
+    //
+    //      for (Object element : mixed)
+    //      {
+    //        if (element instanceof Integer)
+    //        {
+    //          sum += (Integer) element;
+    //        }
+    //        else if (element instanceof String){
+    //        sum += Integer.parseInt( (String) element );
+    //        }
+    //      }
+    //      return sum;
+    //	}
+    // Switch it Up!
+    public static String switchItUp(int number) {
+        switch (number) {
+
+            case 1:
+                return "one";
+            case 2:
+                return "two";
+            case 3:
+                return "three";
+            case 4:
+                return "four";
+            case 5:
+                return "five";
+            case 6:
+                return "six";
+            case 7:
+                return "seven";
+            case 8:
+                return "eight";
+            default:
+                return "nine";
+        }
+    }
+    // String[] numbers =
+    //          {"Zero","One", "Two", "Three",
+    //           "Four", "Five", "Six",
+    //           "Seven", "Eight", "Nine"};
+    //
+    //    return numbers[number];
+    //  }
+    // switch (number)
+    //    {
+    //      case 0: return "Zero";
+    //      case 1: return "One";
+    //      case 2: return "Two";
+    //      case 3: return "Three";
+    //      case 4: return "Four";
+    //      case 5: return "Five";
+    //      case 6: return "Six";
+    //      case 7: return "Seven";
+    //      case 8: return "Eight";
+    //    }
+    //    return "Nine";
+    //  }
+    // Find the first non-consecutive number
+    static Integer find(final int[] array) {
+        for (int i = 0; i < array.length-1; i++) {
+            if (array[i + 1] > array[i] + 1) {
+                return array[i+1];
+            }
+        }
+        return null;
+    }
+    //  for(int i = 1; i < array.length; ++i)
+    //       {
+    //         if(array[i] - array[i - 1] != 1)
+    //         {
+    //           return array[i];
+    //          }
+    //        }
+    //       return null;
+    //    }
     public static void main(String[] args) {
         System.out.println(numberToString(365));
         System.out.println(getCount("o a kak ushakov lil vo kashu kakao"));
@@ -148,5 +234,8 @@ public class CodeWarsExcercise2 {
         System.out.println(TwiceAsOld(30, 12));
         System.out.println(howOld("9 years old"));
         System.out.println(setAlarm(true, true));
+        System.out.println(Arrays.asList("5", "0", 9, 3, 2, 1, "9", 6, 7));
+        System.out.println(switchItUp(5));
+        System.out.println(find(new int[]{4, 6, 7, 8, 9, 11}));
     }
 }
