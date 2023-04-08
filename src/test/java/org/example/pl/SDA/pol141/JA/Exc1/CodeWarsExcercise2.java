@@ -184,6 +184,7 @@ public class CodeWarsExcercise2 {
                 return "nine";
         }
     }
+
     // String[] numbers =
     //          {"Zero","One", "Two", "Three",
     //           "Four", "Five", "Six",
@@ -207,13 +208,14 @@ public class CodeWarsExcercise2 {
     //  }
     // Find the first non-consecutive number
     static Integer find(final int[] array) {
-        for (int i = 0; i < array.length-1; i++) {
+        for (int i = 0; i < array.length - 1; i++) {
             if (array[i + 1] > array[i] + 1) {
-                return array[i+1];
+                return array[i + 1];
             }
         }
         return null;
     }
+
     //  for(int i = 1; i < array.length; ++i)
     //       {
     //         if(array[i] - array[i - 1] != 1)
@@ -223,6 +225,15 @@ public class CodeWarsExcercise2 {
     //        }
     //       return null;
     //    }
+    public static String solution(String str) {
+        String reverse = "";
+        char[] chars = str.toCharArray();
+        for (int i = chars.length-1; i >= 0; i--) {
+            reverse += chars[i];
+        }
+        return reverse;
+    }
+  // return new StringBuilder(str).reverse().toString();
     public static void main(String[] args) {
         System.out.println(numberToString(365));
         System.out.println(getCount("o a kak ushakov lil vo kashu kakao"));
@@ -237,5 +248,6 @@ public class CodeWarsExcercise2 {
         System.out.println(Arrays.asList("5", "0", 9, 3, 2, 1, "9", 6, 7));
         System.out.println(switchItUp(5));
         System.out.println(find(new int[]{4, 6, 7, 8, 9, 11}));
+        System.out.println(solution("world"));
     }
 }
