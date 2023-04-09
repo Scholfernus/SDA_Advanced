@@ -266,6 +266,14 @@ public class CodeWarsExcercise2 {
         //    return number/100 + 1;
         //  }
     }
+    // Abbreviate a Two Word Name
+    public static String abbrevName(String name) {
+        name = "Patrick Feenan";
+        String newWord = name.substring(0,7);
+        char[] chars = newWord.toCharArray();
+        System.out.println(Arrays.toString(chars));
+        return newWord;
+    }
 
     public static void main(String[] args) {
         System.out.println(numberToString(365));
@@ -285,5 +293,6 @@ public class CodeWarsExcercise2 {
         System.out.println(sortDesc(153648125));
         System.out.println(doubleChar("Hello World"));
         System.out.println(century(1593));
+        System.out.println(abbrevName("Patrick Feenan"));
     }
 }
