@@ -2,6 +2,7 @@ package org.example.pl.SDA.pol141.JA.Exc1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class CodeWarsExcercise2 {
@@ -228,12 +229,44 @@ public class CodeWarsExcercise2 {
     public static String solution(String str) {
         String reverse = "";
         char[] chars = str.toCharArray();
-        for (int i = chars.length-1; i >= 0; i--) {
+        for (int i = chars.length - 1; i >= 0; i--) {
             reverse += chars[i];
         }
         return reverse;
     }
-  // return new StringBuilder(str).reverse().toString();
+
+    // return new StringBuilder(str).reverse().toString();
+    // Descending Order
+    public static int sortDesc(final int num) {
+        String numb = Integer.toString(num);
+        char[] reversedNumbers = numb.toCharArray();
+        Arrays.sort(reversedNumbers);
+        String result = new StringBuilder(new String(reversedNumbers)).reverse().toString();
+        return Integer.parseInt(result);
+    }
+
+    // Double Char
+    public static String doubleChar(String s) {
+        String result = "";
+        for (int i = 0; i < s.length(); i++) {
+            char temp = s.charAt(i);
+            result += "" + temp + temp;
+        }
+        return result;
+    }
+
+    //Century From Year
+    public static int century(int number) {
+        return (number - 1) / 100 + 1;
+        //return (number + 99) / 100;
+        // return ((number % 100 == 0))? (number = number / 100 ) :  (number = (number / 100) + 1);
+        // if (number % 100 == 0) {
+        //      return number/100;
+        //    }
+        //    return number/100 + 1;
+        //  }
+    }
+
     public static void main(String[] args) {
         System.out.println(numberToString(365));
         System.out.println(getCount("o a kak ushakov lil vo kashu kakao"));
@@ -249,5 +282,8 @@ public class CodeWarsExcercise2 {
         System.out.println(switchItUp(5));
         System.out.println(find(new int[]{4, 6, 7, 8, 9, 11}));
         System.out.println(solution("world"));
+        System.out.println(sortDesc(153648125));
+        System.out.println(doubleChar("Hello World"));
+        System.out.println(century(1593));
     }
 }
