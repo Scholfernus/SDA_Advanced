@@ -369,6 +369,21 @@ public class CodeWarsExcercise2 {
         return n >= 0 && n < array.length ? (int) Math.pow((array[n]), n) : -1;
     }
 
+    public static boolean comp(int[] a, int[] b) {
+        if (a == null || b == null || a.length != b.length) {
+            return false;
+        }
+        Arrays.sort(a);
+        Arrays.sort(b);
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] * a[i] != b[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Are they the "same"?
     public static void main(String[] args) {
         System.out.println(numberToString(365));
         System.out.println(getCount("o a kak ushakov lil vo kashu kakao"));
@@ -392,6 +407,8 @@ public class CodeWarsExcercise2 {
         System.out.println(getGrade(66, 62, 68));
         System.out.println(repeatStr(5, "Hello"));
         System.out.println(ConvertBinaryArrayToInt(Arrays.asList(1, 1, 1, 1)));
+        System.out.println(comp(new int[]{121, 144, 19, 161, 19, 144, 19, 11},
+        new int[]{121, 14641, 20736, 361, 25921, 361, 20736, 361}));
 
     }
 }
