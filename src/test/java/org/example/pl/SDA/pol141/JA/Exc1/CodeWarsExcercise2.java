@@ -285,9 +285,88 @@ public class CodeWarsExcercise2 {
     public static int areaOrPerimeter(int l, int w) {
         return (l == w) ? l * w : (2 * l) + (2 * w);
     }
-    public static String boolToWord(boolean b)
-    {
+
+    public static String boolToWord(boolean b) {
         return b ? "No" : "Yes";
+    }
+
+    // Grasshopper - Grade book
+    public static char getGrade(int s1, int s2, int s3) {
+        int score = (s1 + s2 + s3) / 3;
+        if (score >= 90 && score <= 100) return 'A';
+        if (score >= 80 && score < 90) return 'B';
+        if (score >= 70 && score < 80) return 'C';
+        if (score >= 60 && score < 70) return 'D';
+        if (score >= 0 && score < 60) return 'F';
+        return 'A';
+        //  return "FFFFFFDCBAA".charAt((s1+s2+s3)/30);
+        // int mean = (s1 + s2 + s3) / 3;
+        //        if (mean >= 90) return 'A';
+        //        if (mean >= 80) return 'B';
+        //        if (mean >= 70) return 'C';
+        //        if (mean >= 60) return 'D';
+        //        return 'F';
+
+        //s1=(s1+s2+s3)/3;
+        //return s1 >= 90 ? 'A':s1 >= 80 ? 'B':s1 >= 70 ? 'C':s1 >= 60 ? 'D':'F';
+    }
+
+    // String repeat
+    public static String repeatStr(final int repeat, final String string) {
+        String word = "";
+        for (int i = 0; i < repeat; i++) {
+            word += "" + string;
+        }
+        return word;
+        // return string.repeat(repeat);  great solution
+        //  StringBuilder sb = new StringBuilder();
+        //        for (int i = 0; i < repeat; i++) {
+        //            sb.append(string);
+        //        }        //
+        //        return sb.toString();
+    }
+
+    // Counting sheep...
+    public int countSheeps(Boolean[] arrayOfSheeps) {
+        if (arrayOfSheeps == null) {
+            throw new IllegalArgumentException("Array cannot be null");
+        }
+        int sheepCount = 0;
+        for (int i = 0; i < arrayOfSheeps.length; i++) {
+            if (arrayOfSheeps[i] != null) {
+                if (arrayOfSheeps[i] == true) {
+                    sheepCount++;
+                }
+            } else {
+                break;
+            }
+        }
+        return sheepCount;
+        //   int counter = 0;
+        //    for (Boolean present : arrayOfSheeps) {
+        //      if (present != null && present) {
+        //        counter += 1;
+        //      }
+        //    }
+        //    return counter;
+    }
+
+    //
+    public static int ConvertBinaryArrayToInt(List<Integer> binary) {
+        String number = "";
+        for (var n : binary
+        ) {
+            number += n;
+        }
+        int i = Integer.parseInt(number, 2);
+        System.out.println(i);
+        return i;
+    }
+
+    //  N-th Power
+    public static int nthPower(int[] array, int n) {
+
+        return n >= 0 && n < array.length ? (int) Math.pow((array[n]), n) : -1;
     }
 
     public static void main(String[] args) {
@@ -309,6 +388,10 @@ public class CodeWarsExcercise2 {
         System.out.println(doubleChar("Hello World"));
         System.out.println(century(1593));
         System.out.println(abbrevName("Patrick Feenan"));
-        System.out.println(areaOrPerimeter(2,5));
+        System.out.println(areaOrPerimeter(2, 5));
+        System.out.println(getGrade(66, 62, 68));
+        System.out.println(repeatStr(5, "Hello"));
+        System.out.println(ConvertBinaryArrayToInt(Arrays.asList(1, 1, 1, 1)));
+
     }
 }
