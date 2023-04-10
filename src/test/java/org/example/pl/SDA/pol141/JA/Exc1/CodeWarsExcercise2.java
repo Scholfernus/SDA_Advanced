@@ -266,13 +266,28 @@ public class CodeWarsExcercise2 {
         //    return number/100 + 1;
         //  }
     }
+
     // Abbreviate a Two Word Name
     public static String abbrevName(String name) {
-        name = "Patrick Feenan";
-        String newWord = name.substring(0,7);
-        char[] chars = newWord.toCharArray();
-        System.out.println(Arrays.toString(chars));
-        return newWord;
+        String name2 = ".";
+        String[] newWord = name.split(" ");
+        for (String ss : newWord
+        ) {
+            name2 += ss.substring(0, 1) + ".";
+        }
+        name = name2.substring(1, 4);
+        return name.toUpperCase();
+        // String[] names = name.split(" ");
+        //  return (names[0].charAt(0) + "." + names[1].charAt(0)).toUpperCase();
+    }
+
+    // Area or Perimeter
+    public static int areaOrPerimeter(int l, int w) {
+        return (l == w) ? l * w : (2 * l) + (2 * w);
+    }
+    public static String boolToWord(boolean b)
+    {
+        return b ? "No" : "Yes";
     }
 
     public static void main(String[] args) {
@@ -294,5 +309,6 @@ public class CodeWarsExcercise2 {
         System.out.println(doubleChar("Hello World"));
         System.out.println(century(1593));
         System.out.println(abbrevName("Patrick Feenan"));
+        System.out.println(areaOrPerimeter(2,5));
     }
 }
