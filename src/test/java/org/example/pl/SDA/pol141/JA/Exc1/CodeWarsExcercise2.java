@@ -383,32 +383,79 @@ public class CodeWarsExcercise2 {
         return true;
     }
 
-    // Are they the "same"?
-    public static void main(String[] args) {
-        System.out.println(numberToString(365));
-        System.out.println(getCount("o a kak ushakov lil vo kashu kakao"));
-        System.out.println(makeNegative(44));
-        System.out.println(summation(8));
-        System.out.println(isLove(5, 4));
-        System.out.println(hoopCount(9));
-        System.out.println(oddOrEven(new int[]{2, 5, 34, 6}));
-        System.out.println(TwiceAsOld(30, 12));
-        System.out.println(howOld("9 years old"));
-        System.out.println(setAlarm(true, true));
-        System.out.println(Arrays.asList("5", "0", 9, 3, 2, 1, "9", 6, 7));
-        System.out.println(switchItUp(5));
-        System.out.println(find(new int[]{4, 6, 7, 8, 9, 11}));
-        System.out.println(solution("world"));
-        System.out.println(sortDesc(153648125));
-        System.out.println(doubleChar("Hello World"));
-        System.out.println(century(1593));
-        System.out.println(abbrevName("Patrick Feenan"));
-        System.out.println(areaOrPerimeter(2, 5));
-        System.out.println(getGrade(66, 62, 68));
-        System.out.println(repeatStr(5, "Hello"));
-        System.out.println(ConvertBinaryArrayToInt(Arrays.asList(1, 1, 1, 1)));
-        System.out.println(comp(new int[]{121, 144, 19, 161, 19, 144, 19, 11},
-        new int[]{121, 14641, 20736, 361, 25921, 361, 20736, 361}));
-
+    //  The Feast of Many Beasts
+    public static boolean feast(String beast, String dish) {
+        char first = beast.charAt(0);
+        char first2 = dish.charAt(0);
+        char last = beast.charAt((beast.length() - 1));
+        char last2 = dish.charAt(dish.length() - 1);
+        return first == first2 && last == last2;
     }
-}
+
+    //  Find the odd int
+    public static int findIt(int[] a) {
+        int count = 0;
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a.length; j++) {
+                if (a[i] == a[j]) {
+                    count++;
+                }
+            }
+            if (count % 2 != 0)
+                return a[i];
+        }
+        return -1;
+        // return Arrays.stream(a).boxed().collect(Collectors.groupingBy(Function.identity())).entrySet()
+        // .stream().filter(e -> e.getValue().size() % 2 == 1).mapToInt(e -> e.getKey()).findFirst().getAsInt();
+        //    }
+    }
+    //  Mexican Wave
+
+    public static String[] wave(String str) {
+        if (str == null || str.isEmpty()) {
+            return new String[] {};
+        }
+        List<String> waves = new ArrayList<>();
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (Character.isWhitespace(c)) {
+                continue;
+            }
+            String wave = str.substring(0, i) + Character.toUpperCase(c) + str.substring(i + 1);
+
+            waves.add(wave);
+        }
+
+        return waves.toArray(new String[0]);
+    }
+        public static void main (String[]args){
+            System.out.println(numberToString(365));
+            System.out.println(getCount("o a kak ushakov lil vo kashu kakao"));
+            System.out.println(makeNegative(44));
+            System.out.println(summation(8));
+            System.out.println(isLove(5, 4));
+            System.out.println(hoopCount(9));
+            System.out.println(oddOrEven(new int[]{2, 5, 34, 6}));
+            System.out.println(TwiceAsOld(30, 12));
+            System.out.println(howOld("9 years old"));
+            System.out.println(setAlarm(true, true));
+            System.out.println(Arrays.asList("5", "0", 9, 3, 2, 1, "9", 6, 7));
+            System.out.println(switchItUp(5));
+            System.out.println(find(new int[]{4, 6, 7, 8, 9, 11}));
+            System.out.println(solution("world"));
+            System.out.println(sortDesc(153648125));
+            System.out.println(doubleChar("Hello World"));
+            System.out.println(century(1593));
+            System.out.println(abbrevName("Patrick Feenan"));
+            System.out.println(areaOrPerimeter(2, 5));
+            System.out.println(getGrade(66, 62, 68));
+            System.out.println(repeatStr(5, "Hello"));
+            System.out.println(ConvertBinaryArrayToInt(Arrays.asList(1, 1, 1, 1)));
+            System.out.println(comp(new int[]{121, 144, 19, 161, 19, 144, 19, 11},
+                    new int[]{121, 14641, 20736, 361, 25921, 361, 20736, 361}));
+            System.out.println(feast("brown bear", "bear claw"));
+            System.out.println(findIt(new int[]{20,1,1,2,2,3,3,5,5,4,20,4,5}));
+            System.out.println(Arrays.toString(wave("codewars")));
+
+        }
+    }
