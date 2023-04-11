@@ -428,6 +428,28 @@ public class CodeWarsExcercise2 {
 
         return waves.toArray(new String[0]);
     }
+
+   //  Array.diff
+    public static int[] arrayDiff(int[] a, int[] b) {
+        ArrayList<Integer> output = new ArrayList<>();
+        for (int i = 0; i < a.length; i++) {
+            boolean isPresent = false;
+            for (int j = 0; j < b.length; j++) {
+                if (a[i] == b[j]) {
+                    isPresent = true;
+                    break;
+                }
+            }
+            if (!isPresent) {
+                output.add(a[i]);
+            }
+        }
+        int[] ret = new int[output.size()];
+        for(int i = 0;i < ret.length;i++)
+            ret[i] = output.get(i);
+        return ret;
+    }
+
         public static void main (String[]args){
             System.out.println(numberToString(365));
             System.out.println(getCount("o a kak ushakov lil vo kashu kakao"));
@@ -456,6 +478,7 @@ public class CodeWarsExcercise2 {
             System.out.println(feast("brown bear", "bear claw"));
             System.out.println(findIt(new int[]{20,1,1,2,2,3,3,5,5,4,20,4,5}));
             System.out.println(Arrays.toString(wave("codewars")));
+            System.out.println(Arrays.toString(arrayDiff(new int[] {1,2,2}, (new int [] {2,2}))));
 
         }
     }
