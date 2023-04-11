@@ -1,9 +1,6 @@
 package org.example.pl.SDA.pol141.JA.Exc1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class CodeWarsExcercise2 {
     // Convert a Number to a String!
@@ -449,8 +446,26 @@ public class CodeWarsExcercise2 {
             ret[i] = output.get(i);
         return ret;
     }
-
-        public static void main (String[]args){
+    //  Isograms
+    public static boolean  isIsogram(String str) {
+        List<Character> set = new ArrayList<>();
+        for (int i = 0; i < str.length(); i++) {
+            char c = Character.toLowerCase(str.charAt(i));
+            if (set.contains(c)) {
+                return false;
+            }
+            set.add(c);
+            List<Character> list = new ArrayList<>();
+            for (int j = 0; j < str.length(); j++) {
+                char d = Character.toLowerCase(str.charAt(i));
+                if (list.contains(d))
+                    return false;
+            }
+        }
+        return true;
+        // return str.length() == str.toLowerCase().chars().distinct().count();
+    }
+    public static void main (String[]args){
             System.out.println(numberToString(365));
             System.out.println(getCount("o a kak ushakov lil vo kashu kakao"));
             System.out.println(makeNegative(44));
@@ -479,6 +494,7 @@ public class CodeWarsExcercise2 {
             System.out.println(findIt(new int[]{20,1,1,2,2,3,3,5,5,4,20,4,5}));
             System.out.println(Arrays.toString(wave("codewars")));
             System.out.println(Arrays.toString(arrayDiff(new int[] {1,2,2}, (new int [] {2,2}))));
+        System.out.println(isIsogram("thumbscrewjapingly"));
 
         }
     }
