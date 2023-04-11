@@ -410,7 +410,7 @@ public class CodeWarsExcercise2 {
 
     public static String[] wave(String str) {
         if (str == null || str.isEmpty()) {
-            return new String[] {};
+            return new String[]{};
         }
         List<String> waves = new ArrayList<>();
         for (int i = 0; i < str.length(); i++) {
@@ -426,7 +426,7 @@ public class CodeWarsExcercise2 {
         return waves.toArray(new String[0]);
     }
 
-   //  Array.diff
+    //  Array.diff
     public static int[] arrayDiff(int[] a, int[] b) {
         ArrayList<Integer> output = new ArrayList<>();
         for (int i = 0; i < a.length; i++) {
@@ -442,12 +442,13 @@ public class CodeWarsExcercise2 {
             }
         }
         int[] ret = new int[output.size()];
-        for(int i = 0;i < ret.length;i++)
+        for (int i = 0; i < ret.length; i++)
             ret[i] = output.get(i);
         return ret;
     }
+
     //  Isograms
-    public static boolean  isIsogram(String str) {
+    public static boolean isIsogram(String str) {
         List<Character> set = new ArrayList<>();
         for (int i = 0; i < str.length(); i++) {
             char c = Character.toLowerCase(str.charAt(i));
@@ -465,36 +466,74 @@ public class CodeWarsExcercise2 {
         return true;
         // return str.length() == str.toLowerCase().chars().distinct().count();
     }
-    public static void main (String[]args){
-            System.out.println(numberToString(365));
-            System.out.println(getCount("o a kak ushakov lil vo kashu kakao"));
-            System.out.println(makeNegative(44));
-            System.out.println(summation(8));
-            System.out.println(isLove(5, 4));
-            System.out.println(hoopCount(9));
-            System.out.println(oddOrEven(new int[]{2, 5, 34, 6}));
-            System.out.println(TwiceAsOld(30, 12));
-            System.out.println(howOld("9 years old"));
-            System.out.println(setAlarm(true, true));
-            System.out.println(Arrays.asList("5", "0", 9, 3, 2, 1, "9", 6, 7));
-            System.out.println(switchItUp(5));
-            System.out.println(find(new int[]{4, 6, 7, 8, 9, 11}));
-            System.out.println(solution("world"));
-            System.out.println(sortDesc(153648125));
-            System.out.println(doubleChar("Hello World"));
-            System.out.println(century(1593));
-            System.out.println(abbrevName("Patrick Feenan"));
-            System.out.println(areaOrPerimeter(2, 5));
-            System.out.println(getGrade(66, 62, 68));
-            System.out.println(repeatStr(5, "Hello"));
-            System.out.println(ConvertBinaryArrayToInt(Arrays.asList(1, 1, 1, 1)));
-            System.out.println(comp(new int[]{121, 144, 19, 161, 19, 144, 19, 11},
-                    new int[]{121, 14641, 20736, 361, 25921, 361, 20736, 361}));
-            System.out.println(feast("brown bear", "bear claw"));
-            System.out.println(findIt(new int[]{20,1,1,2,2,3,3,5,5,4,20,4,5}));
-            System.out.println(Arrays.toString(wave("codewars")));
-            System.out.println(Arrays.toString(arrayDiff(new int[] {1,2,2}, (new int [] {2,2}))));
-        System.out.println(isIsogram("thumbscrewjapingly"));
 
+    //  Count of positives / sum of negatives
+    public static int[] countPositivesSumNegatives(int[] input) {
+        int positive = 0; int negativeSum = 0;
+        if (input==null || input.length==0){
+            return new int []{};
         }
+        for (int i = 0; i < input.length; i++) {
+            if (input[i] > 0) {
+                positive++;
+            } else if (input[i] < 0) {
+                negativeSum+=input[i];
+            }
+        }
+        return new int[]{positive,negativeSum};
+        // if (input == null || input.length == 0) return new int[] {};
+        //       int count = 0,sum = 0;
+        //       for (int i : input) {
+        //         if (i > 0) count ++;
+        //         if (i < 0) sum += i;
+        //       }
+        //       return new int[] {count,sum};
     }
+
+    // Shortest Word
+    public static int findShort(String s) {
+        String [] shortesWord = s.split("\\s+");
+        int shortestLength = Integer.MAX_VALUE;
+        for (var str : shortesWord) {
+            int length = str.length();
+            if (length<shortestLength){
+                shortestLength = length;
+            }
+        }
+        return shortestLength;
+    }
+    public static void main(String[] args) {
+        System.out.println(numberToString(365));
+        System.out.println(getCount("o a kak ushakov lil vo kashu kakao"));
+        System.out.println(makeNegative(44));
+        System.out.println(summation(8));
+        System.out.println(isLove(5, 4));
+        System.out.println(hoopCount(9));
+        System.out.println(oddOrEven(new int[]{2, 5, 34, 6}));
+        System.out.println(TwiceAsOld(30, 12));
+        System.out.println(howOld("9 years old"));
+        System.out.println(setAlarm(true, true));
+        System.out.println(Arrays.asList("5", "0", 9, 3, 2, 1, "9", 6, 7));
+        System.out.println(switchItUp(5));
+        System.out.println(find(new int[]{4, 6, 7, 8, 9, 11}));
+        System.out.println(solution("world"));
+        System.out.println(sortDesc(153648125));
+        System.out.println(doubleChar("Hello World"));
+        System.out.println(century(1593));
+        System.out.println(abbrevName("Patrick Feenan"));
+        System.out.println(areaOrPerimeter(2, 5));
+        System.out.println(getGrade(66, 62, 68));
+        System.out.println(repeatStr(5, "Hello"));
+        System.out.println(ConvertBinaryArrayToInt(Arrays.asList(1, 1, 1, 1)));
+        System.out.println(comp(new int[]{121, 144, 19, 161, 19, 144, 19, 11},
+                new int[]{121, 14641, 20736, 361, 25921, 361, 20736, 361}));
+        System.out.println(feast("brown bear", "bear claw"));
+        System.out.println(findIt(new int[]{20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5}));
+        System.out.println(Arrays.toString(wave("codewars")));
+        System.out.println(Arrays.toString(arrayDiff(new int[]{1, 2, 2}, (new int[]{2, 2}))));
+        System.out.println(isIsogram("thumbscrewjapingly"));
+        System.out.println(Arrays.toString(countPositivesSumNegatives(new int[]{0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14})));
+        System.out.println(Arrays.toString(countPositivesSumNegatives(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15})));
+        System.out.println(findShort("turns out random test cases are easier than writing out basic ones"));
+    }
+}
