@@ -469,18 +469,19 @@ public class CodeWarsExcercise2 {
 
     //  Count of positives / sum of negatives
     public static int[] countPositivesSumNegatives(int[] input) {
-        int positive = 0; int negativeSum = 0;
-        if (input==null || input.length==0){
-            return new int []{};
+        int positive = 0;
+        int negativeSum = 0;
+        if (input == null || input.length == 0) {
+            return new int[]{};
         }
         for (int i = 0; i < input.length; i++) {
             if (input[i] > 0) {
                 positive++;
             } else if (input[i] < 0) {
-                negativeSum+=input[i];
+                negativeSum += input[i];
             }
         }
-        return new int[]{positive,negativeSum};
+        return new int[]{positive, negativeSum};
         // if (input == null || input.length == 0) return new int[] {};
         //       int count = 0,sum = 0;
         //       for (int i : input) {
@@ -492,16 +493,56 @@ public class CodeWarsExcercise2 {
 
     // Shortest Word
     public static int findShort(String s) {
-        String [] shortesWord = s.split("\\s+");
+        String[] shortesWord = s.split("\\s+");
         int shortestLength = Integer.MAX_VALUE;
         for (var str : shortesWord) {
             int length = str.length();
-            if (length<shortestLength){
+            if (length < shortestLength) {
                 shortestLength = length;
             }
         }
         return shortestLength;
     }
+
+    // Write Number in Expanded Form
+    public static String expandedForm(int num) {
+        String strNum = Integer.toString(num);
+        StringBuilder result = new StringBuilder();
+        int length = strNum.length();
+
+        for (int i = 0; i < length; i++) {
+            if (strNum.charAt(i) != '0') {
+                if (result.length() > 0) {
+                    result.append(" + ");
+                }
+                int digit = Character.getNumericValue(strNum.charAt(i));
+                int place = (int) Math.pow(10, length - i - 1);
+                result.append(digit * place);
+            }
+        }
+        return result.toString();
+    }
+
+    //  Jaden Casing Strings
+    public static String toJadenCase(String phrase) {
+        StringBuilder sb = new StringBuilder();
+        if (phrase == null || phrase.length() == 0) {
+            return null;
+        }
+        String[] s = phrase.split(" ");
+        for (String word : s) {
+            if (word.length() <= 0) {
+                sb.append(" ");
+            } else {
+                char firstLetter = Character.toUpperCase(word.charAt(0));
+                String restWord = word.substring(1);
+                String finalWord = firstLetter + restWord;
+                sb.append(finalWord).append(" ");
+            }
+        }
+        return sb.toString().trim();
+    }
+
     public static void main(String[] args) {
         System.out.println(numberToString(365));
         System.out.println(getCount("o a kak ushakov lil vo kashu kakao"));
@@ -533,7 +574,9 @@ public class CodeWarsExcercise2 {
         System.out.println(Arrays.toString(arrayDiff(new int[]{1, 2, 2}, (new int[]{2, 2}))));
         System.out.println(isIsogram("thumbscrewjapingly"));
         System.out.println(Arrays.toString(countPositivesSumNegatives(new int[]{0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14})));
-        System.out.println(Arrays.toString(countPositivesSumNegatives(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15})));
+        System.out.println(Arrays.toString(countPositivesSumNegatives(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15})));
         System.out.println(findShort("turns out random test cases are easier than writing out basic ones"));
+        System.out.println(expandedForm(70304));
+        System.out.println(toJadenCase("most trees are blue"));
     }
 }
