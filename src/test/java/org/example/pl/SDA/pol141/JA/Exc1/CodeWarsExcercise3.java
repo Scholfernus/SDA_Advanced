@@ -1,5 +1,7 @@
 package org.example.pl.SDA.pol141.JA.Exc1;
 
+import java.util.Arrays;
+
 public class CodeWarsExcercise3 {
     public static int findEvenIndex(int[] arr) {
         int countLeft = 0;
@@ -31,13 +33,38 @@ public class CodeWarsExcercise3 {
         //  }
         }
     public static String toJadenCase(String phrase) {
+        StringBuilder fewWords = new StringBuilder();
+        String [] words = phrase.split( " ");
+        for ( String w : words ) {
+            String firstLetter = Character.toUpperCase(w.charAt(0));
+        }
         return "";
     }
 
+   //  minMax number
+    public static int[] minMax(int[] arr) {
+        Arrays.sort(arr);
+        int[]finalNumber = new int[2];
+        System.out.println(Arrays.toString(arr));
+        for (int i = 0; i < arr.length; i++) {
+            finalNumber[0] = arr[0];
+            finalNumber[1] = arr[arr.length-1];
+        }
+        return finalNumber;
+    }
 
+    public int min(int[] list) {
+        Arrays.sort(list);
+        return list[0];
+    }
+    public int max(int[] list) {
+        Arrays.sort(list);
+        return list[list.length-1];
+    }
 
     public static void main(String[] args) {
         System.out.println(findEvenIndex(new int[]{2824, 1774, -1490, -9084, -9696, 23094}));
+        System.out.println(Arrays.toString(minMax(new int[]{1,2,3,4,5})));
     }
 }
 
