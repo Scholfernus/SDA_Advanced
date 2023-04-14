@@ -74,15 +74,25 @@ public class CodeWarsExcercise3 {
         return list[list.length - 1];
     }
 
+    public static int numberOfSteps(int num) {
+        int result = 0;
+        if (num % 2 != 0 && num>=0) {
+            num = num - 1;
+        }
+        while (num >= 0 && num % 2 == 0) {
+            num = num / 2;
+        }
+        return num;
+    }
 
     public static void main(String[] args) {
         System.out.println(findEvenIndex(new int[]{2824, 1774, -1490, -9084, -9696, 23094}));
         System.out.println(Arrays.toString(minMax(new int[]{1, 2, 3, 4, 5})));
         System.out.println(toJadenCase("turns out random test cases are easier than writing out basic ones"));
-        String[] arr={"1", "2", "3", "4", "5"};
-        Random r=new Random();
-        int randomNumber=r.nextInt(arr.length);
+        String[] arr = {"1", "2", "3", "4", "5"};
+        Random r = new Random();
+        int randomNumber = r.nextInt(arr.length);
         System.out.println(arr[randomNumber]);
+        System.out.println(numberOfSteps(17));
     }
 }
-
