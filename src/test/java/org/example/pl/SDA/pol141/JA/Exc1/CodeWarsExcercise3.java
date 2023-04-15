@@ -76,11 +76,13 @@ public class CodeWarsExcercise3 {
 
     public static int numberOfSteps(int num) {
         int result = 0;
-        if (num % 2 != 0 && num>=0) {
-            num = num - 1;
-        }
-        while (num >= 0 && num % 2 == 0) {
-            num = num / 2;
+        while (num > 0) {
+            if (num % 2 != 0) {
+                num = num - 1;
+            } if (num % 2 == 0) {
+
+                num = num / 2;
+            }
         }
         return num;
     }
@@ -93,6 +95,6 @@ public class CodeWarsExcercise3 {
         Random r = new Random();
         int randomNumber = r.nextInt(arr.length);
         System.out.println(arr[randomNumber]);
-        System.out.println(numberOfSteps(17));
+        System.out.println(numberOfSteps(123));
     }
 }
