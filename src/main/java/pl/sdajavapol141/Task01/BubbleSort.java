@@ -18,7 +18,7 @@ public class BubbleSort {
     public static void sort(int[] arr, Comparator<Integer> comparator) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = arr.length - 1; j > 0; j--) {
-                if (comparator.compare(arr[j], arr[j - 1]) < 0) {
+                if (comparator.compare(arr[j], arr[j - 1]) > 1) {
                     int temp = arr[j];
                     arr[j] = arr[j - 1];
                     arr[j - 1] = temp;
