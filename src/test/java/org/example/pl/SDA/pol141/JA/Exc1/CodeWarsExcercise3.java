@@ -85,6 +85,7 @@ public class CodeWarsExcercise3 {
             }
         }
         return num;
+
     }
 
     public static void main(String[] args) {
