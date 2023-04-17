@@ -127,4 +127,10 @@ public class CodeWarsExercise4 {
             //  String errors = s.replaceAll("[a-m]","");
         //        return "" + errors.length() + "/" + s.length();
     }
+    public static int saleHotdogs(final int n){
+        if (n<5) return 100*n;
+        if (n>=5&&n<10) return 95*n;
+        else return n*90 ;
+         // return (n < 5) ? 100 * n : (n < 10) ? 95 * n : 90 * n
+    }
 }
