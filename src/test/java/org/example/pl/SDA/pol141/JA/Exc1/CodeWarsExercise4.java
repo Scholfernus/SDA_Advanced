@@ -10,6 +10,7 @@ public class CodeWarsExercise4 {
         System.out.println(longestWord("what time are we climbing up to the volcano"));
         System.out.println(whoLikesIt("Alex", "Jacob", "Mark", "Max"));
         System.out.println(twoSort(new String[]{"turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"}));
+        System.out.println(printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"));
     }
 
     // Highest Scoring Word
@@ -97,8 +98,33 @@ public class CodeWarsExercise4 {
     public static String twoSort(String[] s) {
         Arrays.sort(s);
         String word = s[0];
-        return String.join("***",word.split(""));
+        return String.join("***", word.split(""));
         //   java.util.Arrays.sort(s);
         //        return String.join("***",s[0].split(""));
+    }
+
+    // Is it even?
+    public boolean isEven(double n) {
+        return n % 2 == 0 ? true : false;
+    }
+
+    public static String printerError(String s) {
+        int sLength = s.length();
+        char[] strToChar = s.toCharArray();
+        System.out.println(Arrays.toString(strToChar));
+            int count = 0;
+            for (char sign : strToChar) {
+                if (sign > 'm') {
+                    strToChar[count] = sign;
+                    count++;
+                }
+            }
+        return Integer.toString(count)+"/" + Integer.toString(sLength);
+            //  return s.replaceAll("[a-m]", "").length() + "/" + s.length();
+
+            // return s.chars().filter(c -> c > 'm').count() + "/" + s.length();
+
+            //  String errors = s.replaceAll("[a-m]","");
+        //        return "" + errors.length() + "/" + s.length();
     }
 }
