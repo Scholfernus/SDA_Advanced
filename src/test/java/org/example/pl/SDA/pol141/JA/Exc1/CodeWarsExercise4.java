@@ -9,6 +9,7 @@ public class CodeWarsExercise4 {
         System.out.println(high("what time are we climbing up to the volcano"));
         System.out.println(longestWord("what time are we climbing up to the volcano"));
         System.out.println(whoLikesIt("Alex", "Jacob", "Mark", "Max"));
+        System.out.println(twoSort(new String[]{"turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"}));
     }
 
     // Highest Scoring Word
@@ -68,7 +69,7 @@ public class CodeWarsExercise4 {
             case 3:
                 return String.format("%s, %s and %s like this", nameAll.get(0), nameAll.get(1), nameAll.get(2));
             default:
-                return String.format("%s, %s and %d others like this", nameAll.get(0), nameAll.get(1),namesCount-2);
+                return String.format("%s, %s and %d others like this", nameAll.get(0), nameAll.get(1), namesCount - 2);
         }
         //    switch (names.length) {
         //          case 0: return "no one likes this";
@@ -78,16 +79,26 @@ public class CodeWarsExercise4 {
         //          default: return String.format("%s, %s and %d others like this", names[0], names[1], names.length - 2);
         //        }
     }
+
     public static double sum(double[] numbers) {
         double sum = 0;
         for (var d : numbers) {
-            if (numbers.length == 0){
+            if (numbers.length == 0) {
                 return 0;
-            }else {
-                sum +=d;
+            } else {
+                sum += d;
             }
         }
         return sum;
         // return Arrays.stream(numbers).sum();
+    }
+
+    // Sort and Star
+    public static String twoSort(String[] s) {
+        Arrays.sort(s);
+        String word = s[0];
+        return String.join("***",word.split(""));
+        //   java.util.Arrays.sort(s);
+        //        return String.join("***",s[0].split(""));
     }
 }
