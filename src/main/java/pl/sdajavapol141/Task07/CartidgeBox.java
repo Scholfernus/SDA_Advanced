@@ -35,11 +35,11 @@ public class CartidgeBox {
 
     public void shot () {
             if (isLoaded()) {
+                System.out.println(bullets.get(0));
                 bullets.remove(0);
                 System.out.println("Pozostało " + bullets.size() + " kul");
             } else {
                 System.out.println("No bullets loaded");
             }
-
         }
     }
