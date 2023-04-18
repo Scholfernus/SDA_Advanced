@@ -233,8 +233,12 @@ public class CodeWarsExercise4 {
         // String[] arr ={"not at all", "I love you",  "a little", "a lot", "passionately", "madly"};
         //      return arr[nb_petals%6];
     }
-}
 
+    public static double findUniq(double arr[]) {
+        Arrays.sort(arr);
+        return arr[0] == arr[1] ? arr[arr.length - 1] : arr[0];
+    }
+}
 
 
 
