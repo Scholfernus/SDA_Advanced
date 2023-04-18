@@ -11,6 +11,8 @@ public class CodeWarsExercise4 {
         System.out.println(whoLikesIt("Alex", "Jacob", "Mark", "Max"));
         System.out.println(twoSort(new String[]{"turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"}));
         System.out.println(printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"));
+        System.out.println(greet("ruski"));
+        System.out.println(Arrays.toString(between(1, 4)));
     }
 
     // Highest Scoring Word
@@ -112,25 +114,104 @@ public class CodeWarsExercise4 {
         int sLength = s.length();
         char[] strToChar = s.toCharArray();
         System.out.println(Arrays.toString(strToChar));
-            int count = 0;
-            for (char sign : strToChar) {
-                if (sign > 'm') {
-                    strToChar[count] = sign;
-                    count++;
-                }
+        int count = 0;
+        for (char sign : strToChar) {
+            if (sign > 'm') {
+                strToChar[count] = sign;
+                count++;
             }
-        return Integer.toString(count)+"/" + Integer.toString(sLength);
-            //  return s.replaceAll("[a-m]", "").length() + "/" + s.length();
+        }
+        return Integer.toString(count) + "/" + Integer.toString(sLength);
+        //  return s.replaceAll("[a-m]", "").length() + "/" + s.length();
 
-            // return s.chars().filter(c -> c > 'm').count() + "/" + s.length();
+        // return s.chars().filter(c -> c > 'm').count() + "/" + s.length();
 
-            //  String errors = s.replaceAll("[a-m]","");
+        //  String errors = s.replaceAll("[a-m]","");
         //        return "" + errors.length() + "/" + s.length();
     }
-    public static int saleHotdogs(final int n){
-        if (n<5) return 100*n;
-        if (n>=5&&n<10) return 95*n;
-        else return n*90 ;
-         // return (n < 5) ? 100 * n : (n < 10) ? 95 * n : 90 * n
+
+    public static int saleHotdogs(final int n) {
+        if (n < 5) return 100 * n;
+        if (n >= 5 && n < 10) return 95 * n;
+        else return n * 90;
+        // return (n < 5) ? 100 * n : (n < 10) ? 95 * n : 90 * n
+    }
+
+    // All Star Code Challenge #18
+    public static int strCount(String str, char letter) {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == letter) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static int[] humanYearsCatYearsDogYears(final int humanYears) {
+        int catYears = 0;
+        int dogYears = 0;
+        if (humanYears == 1) {
+            catYears = 15;
+            dogYears = 15;
+        } else if (humanYears == 2) {
+            catYears = 24;
+            dogYears = 24;
+        } else {
+            catYears = 24 + (humanYears - 2) * 4;
+            dogYears = 24 + (humanYears - 2) * 5;
+        }
+        int[] years = {humanYears, catYears, dogYears};
+        return years;
+    }
+
+    public static String greet(String language) {
+        switch (language) {
+            case "czech":
+                return "Vitejte";
+            case "danish":
+                return "Velkomst";
+            case "dutch":
+                return "Welkom";
+            case "estonian":
+                return "Tere tulemast";
+            case "finnish":
+                return "Tervetuloa";
+            case "flemish":
+                return "Welgekomen";
+            case "french":
+                return "Bienvenue";
+            case "german":
+                return "Willkommen";
+            case "irish":
+                return "Failte";
+            case "italian":
+                return "Benvenuto";
+            case "latvian":
+                return "Gaidits";
+            case "lithuanian":
+                return "Laukiamas";
+            case "polish":
+                return "Witamy";
+            case "spanish":
+                return "Bienvenido";
+            case "swedish":
+                return "Valkommen";
+            case "welsh":
+                return "Croeso";
+            case "english":
+                return "Welcome";
+            default:
+                return "Welcome";
+        }
+    }
+
+    public static int[] between(int a, int b) {
+        int[] result = new int[b - a + 1];
+        for (int i = a; i <= b; i++) {
+            result[i - a] = i;
+        }
+        return result;
     }
 }
+
