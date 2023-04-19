@@ -3,6 +3,7 @@ package org.example.pl.SDA.pol141.JA.Exc1;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class CodeWarsExercise4 {
     public static void main(String[] args) {
@@ -294,7 +295,18 @@ public class CodeWarsExercise4 {
             }
         }
         return true;
+        //  String s = String.valueOf(x);
+        //    String reversed = new StringBuilder(s).reverse().toString();
+        //    return s.equals(reversed);
     }
+    public static int move(int position, int roll) {
+       return (roll*2)+position;
+    }
+    public static String noSpace(final String x) {
+         String s = x.replaceAll("\\s", "");
+        return s;
+    }
+
 }
 
 
