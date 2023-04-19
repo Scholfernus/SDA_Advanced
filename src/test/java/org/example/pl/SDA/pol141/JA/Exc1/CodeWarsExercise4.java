@@ -13,6 +13,7 @@ public class CodeWarsExercise4 {
         System.out.println(printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"));
         System.out.println(greet("ruski"));
         System.out.println(Arrays.toString(between(1, 4)));
+        System.out.println(smallEnough(new int[]{78, 117, 110, 99, 104, 117, 107, 115}, 100));
     }
 
     // Highest Scoring Word
@@ -237,6 +238,49 @@ public class CodeWarsExercise4 {
     public static double findUniq(double arr[]) {
         Arrays.sort(arr);
         return arr[0] == arr[1] ? arr[arr.length - 1] : arr[0];
+    }
+
+    // Anagram Detection
+    public static boolean isAnagram(String test, String original) {
+        char[] chars = test.toLowerCase().toCharArray();
+        char[] chars1 = original.toLowerCase().toCharArray();
+        Arrays.sort(chars);
+        Arrays.sort(chars1);
+        return Arrays.equals(chars, chars1);
+        // final char[] a = test.toLowerCase().toCharArray(), b = original.toLowerCase().toCharArray();
+        //    Arrays.sort(a);
+        //    Arrays.sort(b);
+        //    return Arrays.equals(a,b); }
+    }
+
+    public static List<Object> filterList(final List<Object> list) {
+        List<Object> numbers = new ArrayList<>();
+        for (var numb : list) {
+            if (numb instanceof Integer)
+                numbers.add(numb);
+        }
+        return numbers;
+        // return list.stream().filter(Integer.class::isInstance).toList();
+    }
+
+    // Testing 1-2-3
+    public static List<String> number(List<String> lines) {
+        List<String> numbers = new ArrayList<>();
+        int n = 1;
+        for (String str : lines) {
+            numbers.add(Integer.toString(n) + ": " + str);
+            n++;
+        }
+        return numbers;
+    }
+
+    public static boolean smallEnough(int[] a, int limit) {
+        for (int i = 0; i < a.length;i++) {
+            if (a[i] > limit) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 
