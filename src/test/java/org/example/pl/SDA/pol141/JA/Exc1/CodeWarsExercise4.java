@@ -14,6 +14,7 @@ public class CodeWarsExercise4 {
         System.out.println(greet("ruski"));
         System.out.println(Arrays.toString(between(1, 4)));
         System.out.println(smallEnough(new int[]{78, 117, 110, 99, 104, 117, 107, 115}, 100));
+        System.out.println(isPalindrome(31213));
     }
 
     // Highest Scoring Word
@@ -275,14 +276,27 @@ public class CodeWarsExercise4 {
     }
 
     public static boolean smallEnough(int[] a, int limit) {
-        for (int i = 0; i < a.length;i++) {
+        for (int i = 0; i < a.length; i++) {
             if (a[i] > limit) {
                 return false;
             }
         }
         return true;
     }
+
+    // Palindrome Number
+    public static boolean isPalindrome(int x) {
+        String s = String.valueOf(x);
+        int n = s.length();
+        for (int i = 0; i < n / 2; i++) {
+            if (s.charAt(i) != s.charAt(n - i - 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
+
 
 
 
