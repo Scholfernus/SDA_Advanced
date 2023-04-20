@@ -387,6 +387,20 @@ public class CodeWarsExercise4 {
         StringBuilder reversed = new StringBuilder(s).reverse();
         return reversed.toString();
     }
+
+    public int majorityElement(int[] nums) {
+        int count = 0;
+        int max = 0;
+        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < numbers.length; j++) {
+                if (nums[i] == numbers[i]) {
+                    max = count++;
+                }
+            }
+        }
+        return max;
+    }
 }
 
 
