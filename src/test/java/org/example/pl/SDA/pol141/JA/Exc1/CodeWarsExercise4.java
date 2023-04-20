@@ -16,6 +16,9 @@ public class CodeWarsExercise4 {
         System.out.println(Arrays.toString(between(1, 4)));
         System.out.println(smallEnough(new int[]{78, 117, 110, 99, 104, 117, 107, 115}, 100));
         System.out.println(isPalindrome(31213));
+        System.out.println(capitalize("abcdef"));
+        System.out.println(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
+        System.out.println(reverseLetter("krish21an"));
     }
 
     // Highest Scoring Word
@@ -299,14 +302,91 @@ public class CodeWarsExercise4 {
         //    String reversed = new StringBuilder(s).reverse().toString();
         //    return s.equals(reversed);
     }
+
     public static int move(int position, int roll) {
-       return (roll*2)+position;
+        return (roll * 2) + position;
     }
+
     public static String noSpace(final String x) {
-         String s = x.replaceAll("\\s", "");
+        String s = x.replaceAll("\\s", "");
         return s;
     }
 
+    public static String[] capitalize(String s) {
+        String first = "", second = "";
+        String[] gorillaCap = new String[2];
+        char[] gorilla = s.toCharArray();
+        for (int i = 0; i < gorilla.length; i++) {
+            if (i % 2 != 0) {
+                second += Character.toString(gorilla[i]).toUpperCase();
+            } else {
+                second += Character.toString(gorilla[i]).toLowerCase();
+            }
+            gorillaCap[1] = second;
+        }
+        for (int i = 0; i < gorilla.length; i++) {
+            if (i % 2 == 0) {
+                first += Character.toString(gorilla[i]).toUpperCase();
+            } else {
+                first += Character.toString(gorilla[i]).toLowerCase();
+            }
+            gorillaCap[0] = first;
+        }
+        System.out.println(first);
+        System.out.println(second);
+        System.out.println(Arrays.toString(gorillaCap));
+        return gorillaCap;
+        //   StringBuilder sb = new StringBuilder(s);
+        //       StringBuilder sb2 = new StringBuilder(s);
+        //       for(int i = 0; i<sb.length(); i+=2) sb.setCharAt(i, Character.toUpperCase(sb.charAt(i)));
+        //       for(int i = 1; i<sb2.length(); i+=2) sb2.setCharAt(i, Character.toUpperCase(sb2.charAt(i)));
+        //       return new String[]{sb.toString(), sb2.toString()};
+        //    }
+    }
+
+    public static String highAndLow(String numbers) {
+        String[] split = numbers.split(" ");
+        Arrays.sort(split);
+        int[] numbers2 = new int[split.length];
+        for (int i = 0; i < split.length; i++) {
+            numbers2[i] = Integer.parseInt(split[i]);
+        }
+        Arrays.sort(numbers2);
+        System.out.println(Arrays.toString(split));
+        System.out.println(Arrays.toString(numbers2));
+        return "" + Integer.toString(numbers2[numbers2.length - 1]) + " " + Integer.toString(numbers2[0]) + "";
+        // var stats = stream(numbers.split(" ")).mapToInt(Integer::parseInt).summaryStatistics();
+        //    return stats.getMax() + " " + stats.getMin();
+    }
+
+    public static String chromosomeCheck(String sperm) {
+        return sperm.equals("XX") ? "Congratulations! You're going to have a daughter." :
+                "Congratulations! You're going to have a son.";
+    }
+
+    public static int binToDecimal(String inp) {
+        int number = Integer.parseInt(inp, 2);
+        return number;
+    }
+
+    public static int countSmileys(List<String> arr) {
+        String validSmilyFaces = ":) ;) :-) :~) ;-) ;~) :D ;D :-D :~D ;~D ;~) ;-D";
+        int count = 0;
+        for (int i = 0; i < arr.size(); i++) {
+            if (validSmilyFaces.contains(arr.get(i))) {
+                count++;
+            }
+        }
+        return count;
+        // return (int)arr.stream().filter( x -> x.matches("[:;][-~]?[)D]")).count();
+    }
+
+    public static String reverseLetter(final String str) {
+        String s = str.replaceAll("\\d", "");
+        s = str.replaceAll("\\?", "").replaceAll("\\d", "");
+        StringBuilder reversed = new StringBuilder(s).reverse();
+        return reversed.toString();
+    }
 }
 
 
