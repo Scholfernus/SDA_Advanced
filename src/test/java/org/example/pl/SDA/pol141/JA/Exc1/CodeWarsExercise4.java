@@ -20,6 +20,9 @@ public class CodeWarsExercise4 {
         System.out.println(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
         System.out.println(reverseLetter("krish21an"));
         System.out.println(Arrays.toString(flattenAndSort(new int[][]{{111, 999}, {222}, {333}})));
+        System.out.println(Arrays.toString(rowWeights(new int[]{50, 60, 70, 80})));
+        System.out.println(Arrays.toString(twoSum(new int[]{2, 2, 3}, 4)));
+        System.out.println(findNextSquare(114));
     }
 
     // Highest Scoring Word
@@ -428,7 +431,44 @@ public class CodeWarsExercise4 {
         }
         Arrays.sort(twoTabs);
         return twoTabs;
-     // return Arrays.stream(array).flatMapToInt(Arrays::stream).sorted().toArray();
+        // return Arrays.stream(array).flatMapToInt(Arrays::stream).sorted().toArray();
+    }
+
+    public static int[] rowWeights(final int[] weights) {
+        int[] twoRows = new int[2];
+        for (int i = 0; i < weights.length; i++) {
+            if (i % 2 == 0) {
+                twoRows[0] += weights[i];
+            } else {
+                twoRows[1] += weights[i];
+            }
+        }
+        return twoRows;
+    }
+
+    public static int[] twoSum(int[] numbers, int target) {
+        int[] andWhat = new int[2];
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = i + 1; j < numbers.length; j++) {
+                if (numbers[i] + numbers[j] == target) {
+                    andWhat[0] = i;
+                    andWhat[1] = j;
+                }
+            }
+        }
+        return andWhat;
+    }
+
+    public static long findNextSquare(long sq) {
+        long fin = 0;
+        double res = (double) Math.sqrt(sq);
+        System.out.println(res);
+        if ((double) Math.sqrt(sq) % 1 != 0) {return -1;}
+        else {
+            double result = ((double) Math.sqrt(sq)) + 1;
+            fin = (long) (result * result);
+        }
+        return fin;
     }
 }
 
