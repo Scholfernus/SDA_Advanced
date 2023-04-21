@@ -19,6 +19,7 @@ public class CodeWarsExercise4 {
         System.out.println(capitalize("abcdef"));
         System.out.println(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
         System.out.println(reverseLetter("krish21an"));
+        System.out.println(Arrays.toString(flattenAndSort(new int[][]{{111, 999}, {222}, {333}})));
     }
 
     // Highest Scoring Word
@@ -400,6 +401,34 @@ public class CodeWarsExercise4 {
             }
         }
         return max;
+    }
+
+    public static int enough(int cap, int on, int wait) {
+        return (on + wait) < cap ? 0 : (on + wait) - cap;
+    }
+
+    public static int toBinary(int n) {
+        String binary = Integer.toBinaryString(n);
+        return Integer.parseInt(binary);
+        //  return Integer.parseInt(Integer.toBinaryString(n));
+    }
+
+    public static int[] flattenAndSort(int[][] array) {
+        int sumLength = 0;
+        int index = 0;
+        for (int[] innerArray : array) {
+            sumLength += innerArray.length;
+        }
+        int[] twoTabs = new int[sumLength];
+        for (int[] tempArray : array) {
+            for (var elem : tempArray) {
+                twoTabs[index] = elem;
+                index++;
+            }
+        }
+        Arrays.sort(twoTabs);
+        return twoTabs;
+     // return Arrays.stream(array).flatMapToInt(Arrays::stream).sorted().toArray();
     }
 }
 
