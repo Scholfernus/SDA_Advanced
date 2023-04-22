@@ -39,4 +39,9 @@ public class Book implements Comparable<Book>{
         }
 
     }
+
+    @Override
+    public String toString() {
+        return String.format("%-20s %-20s %5d %3d",title,author,editionYear,copies);
+    }
 }
