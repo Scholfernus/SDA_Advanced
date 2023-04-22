@@ -39,6 +39,7 @@ public class Task30App extends Application {
         stage.setTitle("Reverse content file ...");
         stage.setResizable(false);
         stage.show();
+
     }
 
     private void createLayout(GridPane pane) {
@@ -69,8 +70,17 @@ public class Task30App extends Application {
             return;
         }
         sourceFile = Path.of(file.getAbsolutePath());
+        System.out.println(sourceFile);
         try {
             area.clear();
+            //   StringBuilder contentBuilder = new StringBuilder();
+            //        Files.readAllLines(sourceFile).forEach(line -> {
+            //            contentBuilder.append(line).append(System.lineSeparator());
+            //        });
+            //        area.setText(contentBuilder.toString());
+            //    } catch (IOException e) {
+            //        throw new RuntimeException(e);
+            //    }
             Files.readAllLines(sourceFile).forEach(line -> {
                 area.appendText(line);
                 area.appendText(System.lineSeparator());
@@ -80,32 +90,27 @@ public class Task30App extends Application {
         }
     }
     private void setOnClickSaveBtn(MouseEvent event) {
-        String reversed = "";
         String content = area.getText();
-//        for (int i = content.length() - 1; i >= 0; i--) {
-//            reversed += content.charAt(i);
-//        }
-//        content = reversed;
-        content = new StringBuilder(content).reverse().toString();
-
-
-        final Path fileName = sourceFile.getFileName();
-        String reversedFileName = new StringBuilder().reverse().toString();
-        sourceFile.getParent();//pokazuje ścieżkę gdzie zapisuje plik
+        content = reverse(content);
+        final String fileName = sourceFile.getFileName().toString();
+        final int i = fileName.lastIndexOf(".");
+        final String ext = fileName.substring(i +1);
+        final String fileNameWithoutExtension = fileName.substring(0,i);
+        String reversedFileName = reverse(fileNameWithoutExtension) + "." + ext;
+        System.out.println(sourceFile.getParent());//pokazuje ścieżkę gdzie zapisuje plik
         Path targetPath = Path.of(sourceFile.getParent().toString(), reversedFileName);
-       // Files.writeString(Path.of(reversedFileName),content);
         try{
              Files.writeString(targetPath,content);
          }catch (IOException e){
              throw new RuntimeException();
          }
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Wynik odwrócenia");
-        alert.setContentText(content);
-        alert.show();
+//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//        alert.setTitle("Wynik odwrócenia");
+//        alert.setContentText(content);
+//        alert.show();
     }
-    private void reverse(String str){
-        new StringBuilder(str).reverse().toString();
+    private String reverse(String str){
+        return new StringBuilder(str).reverse().toString();
     }
 }
 
