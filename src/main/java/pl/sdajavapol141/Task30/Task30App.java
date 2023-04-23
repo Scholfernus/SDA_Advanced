@@ -89,27 +89,30 @@ public class Task30App extends Application {
             throw new RuntimeException(e);
         }
     }
+
     private void setOnClickSaveBtn(MouseEvent event) {
         String content = area.getText();
         content = reverse(content);
         final String fileName = sourceFile.getFileName().toString();
         final int i = fileName.lastIndexOf(".");
-        final String ext = fileName.substring(i +1);
-        final String fileNameWithoutExtension = fileName.substring(0,i);
+        System.out.println(fileName.lastIndexOf("."));
+        final String ext = fileName.substring(i + 1);
+        final String fileNameWithoutExtension = fileName.substring(0, i);
         String reversedFileName = reverse(fileNameWithoutExtension) + "." + ext;
         System.out.println(sourceFile.getParent());//pokazuje ścieżkę gdzie zapisuje plik
         Path targetPath = Path.of(sourceFile.getParent().toString(), reversedFileName);
-        try{
-             Files.writeString(targetPath,content);
-         }catch (IOException e){
-             throw new RuntimeException();
-         }
+        try {
+            Files.writeString(targetPath, content);
+        } catch (IOException e) {
+            throw new RuntimeException();
+        }
 //        Alert alert = new Alert(Alert.AlertType.INFORMATION);
 //        alert.setTitle("Wynik odwrócenia");
 //        alert.setContentText(content);
 //        alert.show();
     }
-    private String reverse(String str){
+
+    private String reverse(String str) {
         return new StringBuilder(str).reverse().toString();
     }
 }
