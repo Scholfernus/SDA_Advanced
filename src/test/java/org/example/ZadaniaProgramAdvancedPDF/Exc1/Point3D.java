@@ -1,15 +1,13 @@
 package org.example.ZadaniaProgramAdvancedPDF.Exc1;
 
-import org.example.ZadaniaProgramAdvancedPDF.Exc1.Exc1Point2D;
-
-public class Exc1Point3D extends Exc1Point2D {
+public class Point3D extends Point2D {
     private float z;
 
-    public Exc1Point3D(float z) {
+    public Point3D(float z) {
         this.z = z;
     }
 
-    public Exc1Point3D(float x, float y, float z) {
+    public Point3D(float x, float y, float z) {
         super(x, y);
         this.z = z;
     }
@@ -33,7 +31,7 @@ public class Exc1Point3D extends Exc1Point2D {
 
     @Override
     public String toString() {
-        return "Exc1Point3D{" +
+        return "Point3D{" +
                 "z=" + z +
                 '}';
     }
