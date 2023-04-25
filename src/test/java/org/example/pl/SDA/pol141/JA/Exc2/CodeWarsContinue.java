@@ -42,9 +42,19 @@ public class CodeWarsContinue {
 //            }
 //        }
 //        return stringBuilder.toString();
-        for (int i = 0; i < array.length-4; i++) {
-            array[i]='%';
+        for (int i = 0; i < array.length - 4; i++) {
+            array[i] = '%';
         }
         return new String(array);
+    }
+
+    public int solution(int number) {
+        int sum = 0;
+        for (int i = 0; i < number; i++) {
+            if ((i % 3 == 0 || i % 5 == 0) || (i % 3 == 0 && i % 5 == 0)) {
+                sum += i;
+            }
+        }
+        return sum;
     }
 }
