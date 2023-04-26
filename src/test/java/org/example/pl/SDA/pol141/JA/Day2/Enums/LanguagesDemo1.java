@@ -2,7 +2,6 @@ package org.example.pl.SDA.pol141.JA.Day2.Enums;
 
 import org.example.pl.SDA.pol141.JA.Day2.Interfaces.*;
 
-import java.util.Scanner;
 public class LanguagesDemo1 {
     static Console console = new StdTerminal();
 
