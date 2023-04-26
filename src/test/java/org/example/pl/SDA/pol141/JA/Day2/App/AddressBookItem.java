@@ -1,7 +1,6 @@
 package org.example.pl.SDA.pol141.JA.Day2.App;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class AddressBookItem {
