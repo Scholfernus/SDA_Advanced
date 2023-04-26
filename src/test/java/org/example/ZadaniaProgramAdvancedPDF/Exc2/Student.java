@@ -7,6 +7,9 @@ public class Student extends Person {
     int year;
     double cost;
 
+    public Student() {
+    }
+
     public Student(String type, int year, double cost) {
         super();
         this.type = type;

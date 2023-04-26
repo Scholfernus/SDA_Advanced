@@ -37,10 +37,16 @@ public class Person {
 
     public static void main(String[] args) {
         Person student = new Student("Mike",2000, 1500);
+        Person student2 = new Person();
         Person staff = new Staff("Computer IT", 4500f);
         System.out.println(student);
         System.out.println(staff);
         Person person = new Person("Filip Morris", "Kamczacka");
         System.out.println(person);
+        student2.setAddress("Karmelkowa");
+        student2.setName("Józek");
+        System.out.println(student2);
+        String mike = student.getName();
+        System.out.println(mike);
     }
 }
