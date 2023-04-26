@@ -25,7 +25,7 @@ public class SupplierDemo {
             System.out.println("Wywołanie get");
             return new String[]{"A","B","C"};
         });
-        System.out.println(box); // to wydrukuje -> org.example.pl.SDA.pol141.JA.Day5.Functional.Box@1f17ae12
+        System.out.println(box); // to wydrukuje -> Functional.Day5.JA.Box@1f17ae12
         System.out.println(Arrays.asList(box.getContent()));
     }
 }

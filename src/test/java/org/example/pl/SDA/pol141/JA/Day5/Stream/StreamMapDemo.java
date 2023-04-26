@@ -1,6 +1,5 @@
 package org.example.pl.SDA.pol141.JA.Day5.Stream;
 
-import javax.xml.namespace.QName;
 import java.util.List;
 import java.util.OptionalDouble;
 import java.util.concurrent.atomic.AtomicInteger;
