@@ -1,7 +1,7 @@
 package org.example.ZadaniaProgramAdvancedPDF.Exc3;
 
 public class Rectangle extends Shape {
-    private double width, length;
+    protected double width, length;
 
     public Rectangle(double width, double length) {
         this.width = width;
@@ -36,11 +36,14 @@ public class Rectangle extends Shape {
         this.length = length;
     }
 
+    @Override
     public double getArea() {
-        return (width * length)/2;
+        return (width * length) / 2;
     }
-    public double getPerimeter(){
-        return 2*width + 2*length;
+
+    @Override
+    public double getPerimeter() {
+        return 2 * width + 2 * length;
     }
 
     @Override
