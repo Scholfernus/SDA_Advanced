@@ -54,11 +54,12 @@ public class People_Main {
         teams.get(0).setName("Suzanne");
         System.out.println("Nowe imię dla 1 indeksu: " + teams.get(0).name);
         for (Person person : teams) {
-            if (person.getName().equals("Monika")){
+            if (person.getName().equals("Suzanne")){
                 person.setAge(25);
                 break;
             }
         }
-        System.out.println(teams.get(2).age);
+        System.out.println(teams.get(0).name.substring(3,7));
+        System.out.println(teams.get(0).name +" " +  teams.get(0).age);
     }
 }
