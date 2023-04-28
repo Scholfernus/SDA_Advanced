@@ -46,7 +46,9 @@ public class Emails_List {
                 String web = tokens[11];
 
              //   System.out.println(tokens[0]);
-                System.out.println(Arrays.toString(tokens));
+               // System.out.println(Arrays.toString(tokens));
+                System.out.print(firstName + ", ");
+                System.out.print(city + ", ");
             }
             scanner.close();
         } catch (FileNotFoundException e) {
