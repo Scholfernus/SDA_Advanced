@@ -56,6 +56,7 @@ public class Emails_List {
             e.printStackTrace();
         }
         System.out.println(emailList.size());
+        System.out.println(emailList.get(258));
         System.out.println(emailList);
     }
 }
